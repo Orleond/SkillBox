@@ -19,9 +19,7 @@ public class ToDoList {
         Scanner scanner = new Scanner(System.in);
         String task;
         String taskTitle;
-        int elementNumber;
         String taskBody = "";
-        int count = 0;
         do {
             System.out.print("Введите команду (help): ");
             task = scanner.nextLine();
@@ -42,19 +40,22 @@ public class ToDoList {
     }
 
     public static void help() {
-        System.out.println("\nСписок доступных команд:\n" +
-                "\tADD название дела\n" +
-                "\t\tдобавляет дело в список\n" +
-                "\tADD [N] название дела\n" +
-                "\t\tдобавляет дело в список под номером N\n" +
-                "\tLIST\n" +
-                "\t\tвыводит список дел\n" +
-                "\tEDIT [N] новое название дела\n" +
-                "\t\tотредактировать дело под номером N\n" +
-                "\tDELETE [N]\n" +
-                "\t\tудалить дело под номером N\n" +
-                "\tstop\n" +
-                "\t\tзавершить программу\n");
+        System.out.println("""
+
+                Список доступных команд:
+                \tADD название дела
+                \t\tдобавляет дело в список
+                \tADD [N] название дела
+                \t\tдобавляет дело в список под номером N
+                \tLIST
+                \t\tвыводит список дел
+                \tEDIT [N] новое название дела
+                \t\tотредактировать дело под номером N
+                \tDELETE [N]
+                \t\tудалить дело под номером N
+                \tstop
+                \t\tзавершить программу
+                """);
     }
     public static void added(String str, ArrayList<String> toDoList) {
         int num = -1;
@@ -86,7 +87,7 @@ public class ToDoList {
         if (num != -1 && num < toDoList.size())
             toDoList.set(num, str);
         else
-            System.out.println("Элемент для редактирования не найден");;
+            System.out.println("Элемент для редактирования не найден");
     }
     public static void delElem(String str, ArrayList<String> toDoList) {
         int index = Integer.parseInt(str);
