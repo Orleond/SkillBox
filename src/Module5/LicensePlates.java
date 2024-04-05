@@ -20,12 +20,12 @@ public class LicensePlates {
         String consoleLine;
         char[] letters = { 'А', 'В', 'Е', 'К', 'М', 'Н', 'О', 'Р', 'С', 'Т', 'У', 'Х' };
         ArrayList<String> licensePlatesList = new ArrayList<>();
-        for (int i = 0; i < letters.length; i++) {
+        for (char letter : letters) {
             for (int j = 1; j < 10; j++) {
-                for (int k = 0; k < letters.length; k++) {
-                    for (int l = 0; l < letters.length; l++) {
+                for (char c : letters) {
+                    for (char value : letters) {
                         for (int m = 1; m < 198; m++) {
-                            licensePlatesList.add("" + letters[i] + j + j + j + letters[k] + letters[l] + m);
+                            licensePlatesList.add("" + letter + j + j + j + c + value + m);
                         }
                     }
                 }
@@ -48,19 +48,19 @@ public class LicensePlates {
 
                 Collections.sort(licensePlatesList);
                 startTime = System.currentTimeMillis();
-                int a = Collections.binarySearch(licensePlatesList, consoleLine);
+                Collections.binarySearch(licensePlatesList, consoleLine);
                 endTime = System.currentTimeMillis();
                 System.out.println("Время выполнения бинарного поиска: " +
                             (endTime - startTime) + "мс");
 
                 startTime = System.currentTimeMillis();
-                boolean t = hSet.contains(consoleLine);
+                hSet.contains(consoleLine);
                 endTime = System.currentTimeMillis();
                 System.out.println("Время выполнения поиска по HashSet: " +
                         (endTime - startTime) + "мс");
 
                 startTime = System.currentTimeMillis();
-                t = tSet.contains(consoleLine);
+                tSet.contains(consoleLine);
                 endTime = System.currentTimeMillis();
                 System.out.println("Время выполнения поиска по TreehSet: " +
                         (endTime - startTime) + "мс");
