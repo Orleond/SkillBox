@@ -10,7 +10,6 @@ package Module6;
 
 import java.time.LocalDate;
 public class Deposit extends BankAccount {
-    private LocalDate lastDeposit;
     private LocalDate nextDeposit;
 
     public Deposit() {
